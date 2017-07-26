@@ -140,12 +140,4 @@
     #define MSG_DELTA_CALIBRATE_CENTER      "Calibrate Center"
 #endif // DELTA_CALIBRATION_MENU
 
-#define MSG_3DTOUCH 			    "3Dtouch"
-#define MSG_PIN_DOWN                        "Pin down"
-#define MSG_PIN_UP			    "Pin up"
-#define MSG_SELF_TEST 			    "Self test"
-#define MSG_RELEASE_ALARM		    "Release Alarm"
-#define MSG_AUTO_LEVELING 		    "Auto leveling"
-
-
 #endif // LANGUAGE_EN_H

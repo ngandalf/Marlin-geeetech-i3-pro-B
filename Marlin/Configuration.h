@@ -335,7 +335,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 // Travel limits after homing
 #define X_MAX_POS 210
-#define X_MIN_POS 0
+#define X_MIN_POS -14
 #define Y_MAX_POS 210
 #define Y_MIN_POS 0
 #define Z_MAX_POS 180
@@ -372,8 +372,8 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
     // set the rectangle in which to probe
     #define LEFT_PROBE_BED_POSITION 30
-    #define RIGHT_PROBE_BED_POSITION 200
-    #define BACK_PROBE_BED_POSITION 147
+    #define RIGHT_PROBE_BED_POSITION 170 // 200
+    #define BACK_PROBE_BED_POSITION 152 // 147
     #define FRONT_PROBE_BED_POSITION 20
 
      // set the number of grid points per dimension
@@ -397,9 +397,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
   // these are the offsets to the probe relative to the extruder tip (Hotend - Probe)
   // X and Y offsets must be integers
-  #define X_PROBE_OFFSET_FROM_EXTRUDER 4
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER -43
-  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.4
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -25 //4
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -37 //-43
+  #define Z_PROBE_OFFSET_FROM_EXTRUDER -1.58 //-1.4
 
   #define Z_RAISE_BEFORE_HOMING 4       // (in mm) Raise Z before homing (G28) for Probe Clearance.
                                         // Be sure you have this distance over your Z_MAX_POS in case
@@ -479,7 +479,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,2560,93}  // MXL, Z M8=1.25, MK8
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,400,95.4}  // MXL, Z M8=1.25, MK8
 #define DEFAULT_MAX_FEEDRATE          {400, 400, 2, 45}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {5000,5000,50,5000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 

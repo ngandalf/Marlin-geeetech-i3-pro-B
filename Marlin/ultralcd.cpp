@@ -53,7 +53,6 @@ extern bool powersupply;
 static void lcd_main_menu();
 static void lcd_tune_menu();
 static void lcd_prepare_menu();
-static void lcd_3dtouch_menu();
 static void lcd_move_menu();
 static void lcd_control_menu();
 static void lcd_control_temperature_menu();
@@ -346,7 +345,6 @@ static void lcd_main_menu()
         MENU_ITEM(submenu, MSG_DELTA_CALIBRATE, lcd_delta_calibrate_menu);
 #endif // DELTA_CALIBRATION_MENU
     }
-    MENU_ITEM(submenu, MSG_3DTOUCH, lcd_3dtouch_menu);
     MENU_ITEM(submenu, MSG_CONTROL, lcd_control_menu);
 #ifdef SDSUPPORT
     if (card.cardOK)
@@ -416,18 +414,6 @@ void lcd_set_home_offsets()
   static void lcd_babystep_z() { _lcd_babystep(Z_AXIS, PSTR(MSG_BABYSTEPPING_Z)); }
 
 #endif //BABYSTEPPING
-
-
-static void lcd_3dtouch_menu()
-{
-    START_MENU();
-    MENU_ITEM(back, MSG_MAIN, lcd_main_menu);
-    MENU_ITEM(gcode, MSG_PIN_DOWN ,PSTR("M280 P0 S10"));
-    MENU_ITEM(gcode, MSG_PIN_UP ,PSTR("M280 P0 S90"));
-    MENU_ITEM(gcode, MSG_SELF_TEST ,PSTR("M280 P0 S120"));
-    MENU_ITEM(gcode, MSG_RELEASE_ALARM ,PSTR("M280 P0 S160"));
-    END_MENU();   
-}
 
 static void lcd_tune_menu()
 {
@@ -628,7 +614,11 @@ static void lcd_prepare_menu()
 #endif
     MENU_ITEM(gcode, MSG_DISABLE_STEPPERS, PSTR("M84"));
     MENU_ITEM(gcode, MSG_AUTO_HOME, PSTR("G28"));
-    MENU_ITEM(gcode, MSG_AUTO_LEVELING, PSTR("G29"));
+    MENU_ITEM(gcode, "Bed Leveling", PSTR("G29"));
+    MENU_ITEM(gcode, "Reset 3DTouch", PSTR("M280 P0 S160"));
+    MENU_ITEM(gcode, "Test 3DTouch", PSTR("M280 P0 S120"));
+    MENU_ITEM(gcode, "Test Down 3DTouch", PSTR("M280 P0 S10"));
+    MENU_ITEM(gcode, "Test Up 3DTouch", PSTR("M280 P0 S90"));
     MENU_ITEM(function, MSG_SET_HOME_OFFSETS, lcd_set_home_offsets);
     //MENU_ITEM(gcode, MSG_SET_ORIGIN, PSTR("G92 X0 Y0 Z0"));
 #if TEMP_SENSOR_0 != 0
